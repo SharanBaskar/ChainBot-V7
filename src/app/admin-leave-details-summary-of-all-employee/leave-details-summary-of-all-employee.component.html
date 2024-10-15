@@ -1,0 +1,62 @@
+<div class="leave-summary-page">
+      <!-- Sidebar Menu -->
+      <div class="sidebar">
+        <div class="logo">
+          <img src="https://trial.chainsys.com/appplatform/images/chainsys-platform-logo.png" alt="ChainSys Logo">
+        </div>
+        <div class="menu">
+          <h2></h2>    
+          <button (click)="home()">
+            <i class="fas fa-home"></i> Home
+          </button>
+    
+          <button (click)="showLeaveSummary()">
+            <i class="fas fa-chart-pie"></i> Leave Summary
+          </button>
+    
+          <button class="active" (click)="showEmployeeSummary()">
+            <i class="fas fa-users"></i> Leave Summary of all Employees
+          </button>
+    
+          <button (click)="showEmployeeLeaveDetails()">
+            <i class="fas fa-user-tag"></i> Summary of a particular Employee
+          </button>
+    
+          <button (click)="logout()">
+            <i class="fas fa-sign-out-alt"></i> Logout
+          </button>
+          
+        </div>
+      </div>
+    
+      <!-- Main Content Area -->
+      <div class="main-content">
+        <div class="header">
+          <h2>Welcome! Admin</h2>
+        </div>
+    <h2>Summary Of all the employees</h2>
+      <table class="leave-summary">
+        <thead>
+          <tr>
+            <th>Emp ID</th>
+            <th>Emp Name</th>
+            <th>Total Leave Days</th>
+            <th>Casual Leave Balance</th>
+            <th>Medical Leave Balance</th>
+            <th>Total Leave Balance</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let summary of employeeLeaveSummary">
+            <td>{{ summary.employeeId }}</td>
+            <td>{{ summary.employeename }}</td>
+            <td>{{ summary.totalLeaveDays }}</td>
+            <td>{{ summary.casualLeaveBalance }}</td>
+            <td>{{ summary.medicalLeaveBalance }}</td>
+            <td>{{ summary.totalLeaveBalance }}</td>
+          </tr>
+        </tbody>
+      </table>
+      
+    </div>
+    

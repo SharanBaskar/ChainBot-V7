@@ -1,0 +1,156 @@
+.admin-container {
+  display: flex;
+}
+button {
+  padding: 10px 20px;
+  background: linear-gradient(135deg, #007bff, #0056b3); /* Gradient button background */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  display: block;
+  margin: 10px 0;
+  transition: background 0.3s, transform 0.2s; /* Smooth transition effects */
+}
+
+button:hover {
+  background: linear-gradient(135deg, #0056b3, #003d7a); /* Darker gradient on hover */
+  transform: scale(1.05); /* Slightly enlarge button on hover */
+}
+
+.sidebar {
+  width: 200px;
+  background-color: #005a8e; /* Darker background color for the sidebar */
+  padding: 20px;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* Optional shadow for the sidebar */
+  padding: 20px;
+  position: fixed;
+  height: 100vh;
+  top: 0;
+  left: 0;
+}
+
+
+.sidebar h2 {
+  color: #fff; /* White color for the sidebar heading */
+  font-size: 1.5em; /* Larger font size for the heading */
+  margin-bottom: 20px; /* Space below the heading */
+}
+
+.sidebar button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff; /* Button background color */
+  color: #fff; /* Button text color */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 10px; /* Space between buttons */
+  text-align: left; /* Align text to the left */
+  font-size: 16px; /* Font size for button text */
+  transition: background-color 0.3s, border 0.3s; /* Smooth transition for background and border */
+}
+
+/* Highlight the clicked button */
+.sidebar button:hover,
+.sidebar button:focus {
+  background-color: #0056b3; /* Darker background on hover or focus */
+  outline: none; /* Remove default outline */
+}
+
+/* Keep the clicked button highlighted */
+.sidebar button:focus {
+  border: 2px solid #fff; /* White border for focused button */
+}
+
+/* Use a separate class to indicate active state */
+.sidebar button.active {
+  background-color: #0056b3; /* Darker background when active */
+  border: 2px solid #fff; /* White border for active button */
+}
+
+.logo img {
+  max-width: 100%;
+  height: auto;
+}
+
+
+.menu {
+  list-style: none;
+  padding: 0;
+}
+
+.menu button {
+  width: 100%;
+  background: none;
+  border: none;
+  text-align: left;
+  padding: 10px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.menu .menu-item {
+  position: relative;
+}
+
+.main-content {
+  margin-left: 220px; /* Adjust based on the sidebar width */
+  padding: 20px;
+  width: calc(100% - 220px); /* Adjust based on the sidebar width */
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header button {
+  background: linear-gradient(135deg, #007bff, #0056b3);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  padding: 10px 20px;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.header button:hover {
+  background: linear-gradient(135deg, #0056b3, #003d7a);
+  transform: scale(1.05);
+}
+
+.admin-description {
+  margin-top: 20px;
+  padding: 15px;
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.admin-description h2 {
+  margin-bottom: 10px;
+}
+
+.admin-description p {
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.admin-description ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.admin-description ul li {
+  margin: 10px 0;
+}
+
+.admin-description ul li strong {
+  color: #005a8e;
+}
+
+/* Existing styles for summary cards and section boxes */

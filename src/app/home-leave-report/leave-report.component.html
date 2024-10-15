@@ -1,0 +1,89 @@
+<div class="home-container">
+  <div class="sidebar">
+    <div class="logo">
+      <img src="https://trial.chainsys.com/appplatform/images/chainsys-platform-logo.png" alt="ChainSys Logo">
+    </div>
+    <div class="menu">
+      <h2></h2>
+
+      <button (click)="home()">
+        <i class="fas fa-home"></i> Home
+      </button>
+
+      <button (click)="showMyDetails()">
+        <i class="fas fa-user"></i> My Details
+      </button>
+
+      <button class="active" (click)="toggleLeaveMenu()">
+        <i class="fas fa-clipboard-list"></i> Leave
+        <i [class]="isLeaveMenuOpen ? 'fas fa-chevron-up' : 'fas fa-chevron-down'"></i>
+      </button>
+
+      <div  class="submenu">
+        <button (click)="showLeaveDetails()">
+          <i class="fas fa-info-circle"></i> Leave Details
+        </button>
+        <button class="active" (click)="showLeaveSummary()">
+          <i class="fas fa-chart-bar"></i> Leave Report
+        </button>
+      </div>
+
+      <button (click)="showServiceRequests()">
+        <i class="fas fa-tools"></i> Service Requests
+      </button>
+
+      <button (click)="showDekstopSupport()">
+        <i class="fas fa-desktop"></i> Desktop Support
+      </button>
+
+      <button (click)="logout()">
+        <i class="fas fa-sign-out-alt"></i> Logout
+      </button>
+    </div>
+  </div>
+
+  <div class="main-content">
+    <div class="header">
+      <h2>Welcome! {{ employee?.employeename }}</h2>
+    </div>
+    
+    <!-- Search Container for Filtering by Year -->
+    <div class="search-container">
+      <select [(ngModel)]="selectedYear" (change)="fetchLeaveRecordsByYear()">
+        <option value="" disabled selected>Select a Year</option>
+        <option value="all">All</option>
+        <option *ngFor="let year of yearOptions" [value]="year">{{ year }}</option>
+      </select>
+    </div>
+    
+    <h2>Leave Records</h2>
+    <div *ngFor="let yearGroup of groupLeaveRecordsByYear()">
+      <h3>{{ yearGroup.year }}</h3>
+      <table class="leave-records">
+        <thead>
+          <tr>
+            <th>Start Date</th>
+            <th>End Date</th>
+            <th>Leave Type</th>
+            <th>Reason</th>
+            <th>Leave Days</th>
+            <th>Loss of Pay</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let leave of yearGroup.leaves">
+            <td>{{ leave.startDate | date }}</td>
+            <td>{{ leave.endDate | date }}</td>
+            <td>{{ leave.leaveType }}</td>
+            <td>{{ leave.leaveReason }}</td>
+            <td>{{ leave.leaveDays }}</td>
+            <td>{{ leave.lossOfPay }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    
+    <div *ngIf="!employee && !leaveDetails">Loading employee and leave details...</div>
+    <app-chatbot></app-chatbot>
+  </div>
+</div>

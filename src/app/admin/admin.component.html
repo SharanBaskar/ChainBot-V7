@@ -1,0 +1,51 @@
+<div class="admin-container">
+  <div class="sidebar">
+    <div class="logo">
+      <img src="https://trial.chainsys.com/appplatform/images/chainsys-platform-logo.png" alt="ChainSys Logo">
+    </div>
+    <div class="menu">
+      <h2></h2>
+      <button class="active" (click)="home()">
+        <i class="fas fa-home"></i> Home
+      </button>
+
+      <button (click)="showLeaveSummary()">
+        <i class="fas fa-chart-pie"></i> Leave Summary
+      </button>
+
+      <button (click)="showEmployeeSummary()">
+        <i class="fas fa-users"></i> Leave Summary of all Employees
+      </button>
+
+      <button (click)="showEmployeeLeaveDetails()">
+        <i class="fas fa-user-tag"></i> Summary of a particular Employee
+      </button>
+
+      <button (click)="logout()">
+        <i class="fas fa-sign-out-alt"></i> Logout
+      </button>
+      
+    </div>
+  </div>
+  <div class="main-content">
+    <div class="header">
+      <h2>Welcome! Admin</h2>
+    </div>
+    <!-- Admin Page Description -->
+    <div class="admin-description section-box">
+      <h2>Admin Dashboard Overview</h2>
+      <p>Welcome to the Admin Dashboard! Here, you can manage and monitor employee leave records and summaries. As an admin, you can perform the following tasks:</p>
+      <ul>
+        <li><strong>Home:</strong> Return to the main dashboard to view all available options.</li>
+        <li><strong>Leave Summary:</strong> Get an overview of employees who took leave today, this week, this month, and this year.</li>
+        <li><strong>Month-wise Leave Summary:</strong> View leave data organized by month.</li>
+        <li><strong>Week-wise Leave Summary:</strong> View leave data organized by week.</li>
+        <li><strong>Date-wise Leave Summary:</strong> View leave data for a specific date.</li>
+        <li><strong>Employee Leave Summary:</strong> Check the leave details for a specific employee.</li>
+      </ul>
+      <p>Use the menu to navigate between these different sections and manage leave data efficiently.</p>
+    </div>
+    <!-- Leave Summary and Records Sections -->
+    <!-- (Your existing leave summary and records code here) -->
+  </div>
+</div>

@@ -1,0 +1,321 @@
+.leave-summary-page {
+  display: flex;
+  }
+  
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .leave-details,
+  .leave-summary,
+  .leave-records {
+    margin-top: 20px;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  .leave-details th,
+  .leave-details td,
+  .leave-summary th,
+  .leave-summary td,
+  .leave-records th,
+  .leave-records td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+  }
+  
+  .leave-details th,
+  .leave-summary th,
+  .leave-records th {
+    background-color: #f2f2f2;
+    font-weight: bold; /* Ensure headers stand out */
+  }
+  
+  .leave-details td,
+  .leave-summary td,
+  .leave-records td {
+    vertical-align: top; /* Align text to the top */
+  }
+  
+  .leave-summary {
+    margin-top: 30px; /* Add space before the summary table */
+  }
+  
+  .leave-summary th,
+  .leave-summary td {
+    text-align: center;
+  }
+  
+  .leave-records th,
+  .leave-records td {
+    text-align: left; /* Align text to the left for the records table */
+  }
+  
+  .leave-records {
+    margin-top: 20px; /* Add space before the leave records table */
+  }
+  
+  .leave-records thead {
+    background-color: #e9ecef; /* Slightly different background for the table header */
+  }
+  
+  .leave-records tbody tr:nth-child(even) {
+    background-color: #f9f9f9; /* Zebra striping for better readability */
+  }
+  
+  .leave-records tbody tr:hover {
+    background-color: #f1f1f1; /* Highlight row on hover */
+  }
+  
+  button {
+    padding: 10px 20px;
+    background: linear-gradient(135deg, #007bff, #0056b3); /* Gradient button background */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: block;
+    margin: 10px 0;
+    transition: background 0.3s, transform 0.2s; /* Smooth transition effects */
+  }
+  
+  button:hover {
+    background: linear-gradient(135deg, #0056b3, #003d7a); /* Darker gradient on hover */
+    transform: scale(1.05); /* Slightly enlarge button on hover */
+  }
+   
+
+ 
+.sidebar {
+  width: 200px;
+  background-color: #005a8e; /* Darker background color for the sidebar */
+  padding: 20px;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* Optional shadow for the sidebar */
+  padding: 20px;
+  position: fixed;
+  height: 100vh;
+  top: 0;
+  left: 0;
+}
+
+
+.sidebar h2 {
+  color: #fff; /* White color for the sidebar heading */
+  font-size: 1.5em; /* Larger font size for the heading */
+  margin-bottom: 20px; /* Space below the heading */
+}
+
+.sidebar button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff; /* Button background color */
+  color: #fff; /* Button text color */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 10px; /* Space between buttons */
+  text-align: left; /* Align text to the left */
+  font-size: 16px; /* Font size for button text */
+  transition: background-color 0.3s, border 0.3s; /* Smooth transition for background and border */
+}
+
+/* Highlight the clicked button */
+.sidebar button:hover,
+.sidebar button:focus {
+  background-color: #0056b3; /* Darker background on hover or focus */
+  outline: none; /* Remove default outline */
+}
+
+/* Keep the clicked button highlighted */
+.sidebar button:focus {
+  border: 2px solid #fff; /* White border for focused button */
+}
+
+/* Use a separate class to indicate active state */
+.sidebar button.active {
+  background-color: #0056b3; /* Darker background when active */
+  border: 2px solid #fff; /* White border for active button */
+}
+
+.logo img {
+  max-width: 100%;
+  height: auto;
+}
+
+
+.menu {
+  list-style: none;
+  padding: 0;
+}
+
+.menu button {
+  width: 100%;
+  background: none;
+  border: none;
+  text-align: left;
+  padding: 10px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.menu .menu-item {
+  position: relative;
+}
+  
+  .main-content {
+    margin-left: 220px; /* Adjust based on the sidebar width */
+    padding: 20px;
+    width: calc(100% - 220px); /* Adjust based on the sidebar width */
+  }
+  
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .header button {
+    background: linear-gradient(135deg, #007bff, #0056b3);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 10px 20px;
+    transition: background 0.3s, transform 0.2s;
+  }
+  
+  .header button:hover {
+    background: linear-gradient(135deg, #0056b3, #003d7a);
+    transform: scale(1.05);
+  }
+
+
+/* Summary styling */
+.summary {
+  border: 2px solid #007bff; /* Border around the summary */
+  border-radius: 5px; /* Rounded corners */
+  padding: 20px; /* Padding inside the summary box */
+  margin-top: 20px; /* Space above the summary */
+  background-color: #f9f9f9; /* Light background color */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow for a floating effect */
+}
+
+.summary h2 {
+  color: #333; /* Darker color for the heading */
+  font-size: 1.75em; /* Larger font size for the heading */
+  margin-bottom: 10px; /* Space below the heading */
+  border-bottom: 2px solid #007bff; /* Optional border under the heading */
+  padding-bottom: 10px; /* Padding for better spacing */
+}
+
+.summary p {
+  font-size: 1.2em; /* Increase font size for the text */
+  color: #555; /* Slightly darker text color */
+  margin-bottom: 10px; /* Space below each paragraph */
+}
+
+.summary p span {
+  font-weight: bold; /* Highlight the count in the summary */
+  color: #007bff; /* Highlighted color for numbers */
+}
+
+/* Summary styling */
+.summary {
+  border: 2px solid #007bff; /* Border around the summary */
+  border-radius: 5px; /* Rounded corners */
+  padding: 20px; /* Padding inside the summary box */
+  margin-top: 20px; /* Space above the summary */
+  background-color: #f9f9f9; /* Light background color */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow for a floating effect */
+}
+
+.summary h2 {
+  color: #333; /* Darker color for the heading */
+  font-size: 1.75em; /* Larger font size for the heading */
+  margin-bottom: 10px; /* Space below the heading */
+  border-bottom: 2px solid #007bff; /* Optional border under the heading */
+  padding-bottom: 10px; /* Padding for better spacing */
+}
+
+.summary p {
+  font-size: 1.2em; /* Increase font size for the text */
+  color: #555; /* Slightly darker text color */
+  margin-bottom: 10px; /* Space below each paragraph */
+}
+
+.summary p span {
+  font-weight: bold; /* Highlight the count in the summary */
+  color: #007bff; /* Highlighted color for numbers */
+}
+.summary-cards {
+  display: flex;
+  justify-content: space-between; /* Spreads out the cards evenly */
+  gap: 20px; /* Space between the cards */
+  margin-top: 20px;
+}
+
+.card {
+  flex: 1; /* Each card takes equal space */
+  border: 2px solid #007bff;
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+  background-color: #f9f9f9;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+}
+
+.card h3 {
+  font-size: 1.5em;
+  color: #007bff;
+  margin-bottom: 10px;
+}
+
+.card p {
+  font-size: 2em;
+  font-weight: bold;
+  color: #333;
+}
+
+.card:hover {
+  transform: scale(1.05); /* Slightly enlarge the card on hover */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+  /* Section box styling */
+  .section-box {
+    border: 2px solid #007bff; /* Border color */
+    border-radius: 5px; /* Rounded corners */
+    padding: 15px; /* Space inside the box */
+    margin-bottom: 20px; /* Space below the box */
+    background-color: #f9f9f9; /* Light background for the box */
+  }
+  
+  .section-box h2 {
+    color: #333; /* Darker color for headings */
+    font-size: 1.5em; /* Larger font size for headings */
+    border-bottom: none; /* Remove underline for headings inside the box */
+    margin-bottom: 10px; /* Space below the heading */
+  }
+  
+  /* Button styling inside section-box */
+  .section-box button {
+    padding: 10px 20px;
+    background: linear-gradient(135deg, #007bff, #0056b3); /* Gradient button background */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: block;
+    margin: 10px 0;
+    transition: background 0.3s, transform 0.2s; /* Smooth transition effects */
+  }
+  
+  .section-box button:hover {
+    background: linear-gradient(135deg, #0056b3, #003d7a); /* Darker gradient on hover */
+    transform: scale(1.05); /* Slightly enlarge button on hover */
+  }

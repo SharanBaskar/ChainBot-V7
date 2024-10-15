@@ -1,0 +1,203 @@
+.leave-details-page {
+  display: flex;
+  }
+  
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .leave-details,
+  .leave-summary {
+    margin-top: 20px;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  .leave-details th,
+  .leave-details td,
+  .leave-summary th,
+  .leave-summary td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+  }
+  
+  .leave-details th,
+  .leave-summary th {
+    background-color: #f2f2f2;
+  }
+  
+  .leave-summary {
+    margin-top: 30px; /* Add some space before the summary table */
+  }
+  
+  .leave-summary th,
+  .leave-summary td {
+    text-align: center; /* Center align text for the summary table */
+  }
+  
+  button {
+    padding: 10px 20px;
+    background: linear-gradient(135deg, #007bff, #0056b3); /* Gradient button background */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: block;
+    margin: 10px 0;
+    transition: background 0.3s, transform 0.2s; /* Smooth transition effects */
+  }
+  
+  button:hover {
+    background: linear-gradient(135deg, #0056b3, #003d7a); /* Darker gradient on hover */
+    transform: scale(1.05); /* Slightly enlarge button on hover */
+  }
+
+ 
+  /* Container for input and button */
+.search-container {
+    display: flex;
+    align-items: center; /* Align items vertically in the center */
+    gap: 10px; /* Space between input and button */
+    margin-bottom: 20px; /* Space below the search box */
+  }
+  
+  /* Style for input field */
+  .search-container input {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    flex: 1; /* Allow input field to take available space */
+    box-sizing: border-box; /* Include padding and border in the width calculation */
+  }
+  
+  /* Style for the search button */
+  .search-container button {
+    padding: 10px 20px;
+    background: linear-gradient(135deg, #007bff, #0056b3); /* Gradient button background */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s; /* Smooth transition effects */
+  }
+  
+  .search-container button:hover {
+    background: linear-gradient(135deg, #0056b3, #003d7a); /* Darker gradient on hover */
+    transform: scale(1.05); /* Slightly enlarge button on hover */
+  }
+
+  .no-records-message {
+    color: #d9534f; /* Red color for error message */
+    font-size: 16px;
+    margin-top: 20px;
+  }
+  
+  
+  
+.sidebar {
+  width: 200px;
+  background-color: #005a8e; /* Darker background color for the sidebar */
+  padding: 20px;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* Optional shadow for the sidebar */
+  padding: 20px;
+  position: fixed;
+  height: 100vh;
+  top: 0;
+  left: 0;
+}
+
+
+.sidebar h2 {
+  color: #fff; /* White color for the sidebar heading */
+  font-size: 1.5em; /* Larger font size for the heading */
+  margin-bottom: 20px; /* Space below the heading */
+}
+
+.sidebar button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff; /* Button background color */
+  color: #fff; /* Button text color */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 10px; /* Space between buttons */
+  text-align: left; /* Align text to the left */
+  font-size: 16px; /* Font size for button text */
+  transition: background-color 0.3s, border 0.3s; /* Smooth transition for background and border */
+}
+
+/* Highlight the clicked button */
+.sidebar button:hover,
+.sidebar button:focus {
+  background-color: #0056b3; /* Darker background on hover or focus */
+  outline: none; /* Remove default outline */
+}
+
+/* Keep the clicked button highlighted */
+.sidebar button:focus {
+  border: 2px solid #fff; /* White border for focused button */
+}
+
+/* Use a separate class to indicate active state */
+.sidebar button.active {
+  background-color: #0056b3; /* Darker background when active */
+  border: 2px solid #fff; /* White border for active button */
+}
+
+.logo img {
+  max-width: 100%;
+  height: auto;
+}
+
+
+.menu {
+  list-style: none;
+  padding: 0;
+}
+
+.menu button {
+  width: 100%;
+  background: none;
+  border: none;
+  text-align: left;
+  padding: 10px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.menu .menu-item {
+  position: relative;
+}
+  
+  .main-content {
+    margin-left: 220px; /* Adjust based on the sidebar width */
+    padding: 20px;
+    width: calc(100% - 220px); /* Adjust based on the sidebar width */
+  }
+  
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .header button {
+    background: linear-gradient(135deg, #007bff, #0056b3);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 10px 20px;
+    transition: background 0.3s, transform 0.2s;
+  }
+  
+  .header button:hover {
+    background: linear-gradient(135deg, #0056b3, #003d7a);
+    transform: scale(1.05);
+  }

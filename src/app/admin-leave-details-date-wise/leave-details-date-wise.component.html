@@ -1,0 +1,79 @@
+<div class="leave-details-page">
+    <!-- Sidebar Menu -->
+    <div class="sidebar">
+      <div class="logo">
+        <img src="https://trial.chainsys.com/appplatform/images/chainsys-platform-logo.png" alt="ChainSys Logo">
+      </div>
+      <div class="menu">
+        <h2></h2>  
+        <button (click)="home()">
+          <i class="fas fa-home"></i> Home
+        </button>
+  
+        <button class="active" (click)="showLeaveSummary()">
+          <i class="fas fa-chart-pie"></i> Leave Summary
+        </button>
+  
+        <button (click)="showEmployeeSummary()">
+          <i class="fas fa-users"></i> Leave Summary of all Employees
+        </button>
+  
+        <button (click)="showEmployeeLeaveDetails()">
+          <i class="fas fa-user-tag"></i> Summary of a particular Employee
+        </button>
+  
+        <button (click)="logout()">
+          <i class="fas fa-sign-out-alt"></i> Logout
+        </button>
+        
+      </div>
+    </div>
+  
+    <!-- Main Content Area -->
+    <div class="main-content">
+      <div class="header">
+        <h2>Welcome! Admin</h2>
+      </div>
+      <button (click)="home()">Back</button>
+  <div class="search-container">
+    <input [(ngModel)]="searchDate" placeholder="Enter Date (YYYY-MM-DD)" (keyup.enter)="fetchDetails()"/>
+    <button (click)="fetchDetails()">Search</button>
+   
+  </div>
+  <button (click)="showAllRecords()">Show All</button>
+      <!-- Display the no records message -->
+    <div *ngIf="noLeaveMessage" class="no-records-message">
+      {{ noLeaveMessage }}
+    </div>
+      <h2>Leave Details of All Employees (Date Wise)</h2>
+      <div *ngFor="let group of groupedLeaveRecords">
+        <h3>{{ group.date }}</h3>
+        <table class="leave-details">
+          <thead>
+            <tr>
+              <th>Emp ID</th>
+              <th>Emp Name</th>
+              <th>Start Date</th>
+              <th>End Date</th>
+              <th>Leave Type</th>
+              <th>Reason</th>
+              <th>Leave Days</th>
+              <th>Loss of Pay</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let leave of group.leaves">
+              <td>{{ leave.employeeId }}</td>
+              <td>{{ leave.employeename }}</td>
+              <td>{{ leave.startDate | date }}</td>
+              <td>{{ leave.endDate | date }}</td>
+              <td>{{ leave.leaveType }}</td>
+              <td>{{ leave.leaveReason }}</td>
+              <td>{{ leave.leaveDays }}</td>
+              <td>{{ leave.lossOfPay }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+  </div>
+  

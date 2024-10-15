@@ -1,0 +1,518 @@
+{
+  "_id": "decisiontree_11",
+  "_rev": "9-76ae3833e7ef2d03658b95c907f0c282",
+  "data": {
+    "type": "decisiontree",
+    "startNode": "node1",
+    "nodes": {
+      "node1": {
+        "type": "input",
+        "text": "Hi! I’m Chainbot, Online Assistant. I’m here to help you with Leave Application and Service Requests."
+      },
+      "node2": {
+        "type": "question",
+        "text": "Welcome to our leave application service",
+        "answers": [
+          {
+            "text": "Leave form!",
+            "next": "node3"
+          },
+          {
+            "text": "Check Leave balance",
+            "next": "node3"
+          },
+          {
+            "text": "Cancel",
+            "next": "node12"
+          }
+        ]
+      },
+      "node3": {
+        "type": "input",
+        "text": "Please provide your employee ID",
+        "next": "nodeCheckEligibility"
+      },
+      "nodeCheckEligibility": {
+        "type": "statement",
+        "text": "Checking your eligibility...",
+        "next": "nodeEligibilityResult"
+      },
+      "nodeEligibilityResult": {
+        "type": "question",
+        "text": "Hello [employeename], you are eligible to apply for leave. Your available leave balance is [leaveBalance], Casual Leave Balance: [casualLeaveBalance], Medical Leave Balance: [medicalLeaveBalance].",
+        "answers": [
+          {
+            "text": "Apply!",
+            "next": "node4"
+          },
+          {
+            "text": "Cancel",
+            "next": "node13"
+          }
+        ]
+      },
+      "node4": {
+        "type": "question",
+        "text": "Type of leave",
+        "answers": [
+          {
+            "text": "Casual Leave",
+            "next": "node5"
+          },
+          {
+            "text": "Medical Leave",
+            "next": "node5"
+          }
+        ]
+      },
+      "node5": {
+        "type": "input",
+        "text": "Reason for the leave",
+        "next": "node6"
+      },
+      "node6": {
+        "type": "input",
+        "text": "No. of days",
+        "next": "node7"
+      },
+      "node7": {
+        "type": "input",
+        "text": "Please provide the start date for your leave. (Format: YYYY-MM-DD)",
+        "next": "node8"
+      },
+      "node8": {
+        "type": "input",
+        "text": "Please provide the end date for your leave. (Format: YYYY-MM-DD)",
+        "next": "node9"
+      },
+      "node9": {
+        "type": "question",
+        "text": "Are you sure you want to submit the form?",
+        "answers": [
+          {
+            "text": "Submit",
+            "next": "node10"
+          },
+          {
+            "text": "Make changes",
+            "next": "node4"
+          }
+        ]
+      },
+      "node10": {
+        "type": "question",
+        "text": "Your leave application has been successfully submitted! You will receive a confirmation email shortly. Is there anything else I can help you with?",
+        "answers": [
+          {
+            "text": "Yes",
+            "next": "node12"
+          },
+          {
+            "text": "No",
+            "next": "node13"
+          }
+        ]
+      },
+      "node11": {
+        "type": "question",
+        "text": "Your leave balance is 0. Please note that your leave will be marked as loss of pay.",
+        "answers": [
+          {
+            "text": "Ok",
+            "next": "node16"
+          },
+          {
+            "text": "No",
+            "next": "node13"
+          }
+        ]
+      },
+      "node12": {
+        "type": "question",
+        "text": "Ok! Do you need any other assistance?",
+        "answers": [
+          {
+            "text": "Apply leave",
+            "next": "node2"
+          },
+          {
+            "text": "Service Request",
+            "next": "node14"
+          },
+          {
+            "text": "No",
+            "next": "node13"
+          }
+        ]
+      },
+      "node13": {
+        "type": "input",
+        "text": "Thank You"
+      },
+      "node14": {
+        "type": "question",
+        "text": "Welcome to our Service Request!",
+        "answers": [
+          {
+            "text": "Bug",
+            "next": "nodeBug"
+          },
+          {
+            "text": "Change Request",
+            "next": "nodeChangeRequest"
+          },
+          {
+            "text": "Support Request",
+            "next": "nodeServiceRequest"
+          },
+          {
+            "text": "Cancel",
+            "next": "node13"
+          }
+        ]
+      },
+      "node15": {
+        "type": "input",
+        "text": "Sorry, I can only assist with leave applications and service requests."
+      },
+      "node16": {
+        "type": "question",
+        "text": "Type of leave",
+        "answers": [
+          {
+            "text": "Loss Of Pay",
+            "next": "node5"
+          }
+        ]
+      },
+      "nodeBug": {
+        "type": "input",
+        "text": "Enter your employee ID",
+        "next": "nodeBugTitle"
+      },
+      "nodeBugTitle": {
+        "type": "input",
+        "text": "Title",
+        "next": "nodeBugClient"
+      },
+      "nodeBugClient": {
+        "type": "input",
+        "text": "Client",
+        "next": "nodeBugInstanceName"
+      },
+      "nodeBugInstanceName": {
+        "type": "input",
+        "text": "Instance Name",
+        "next": "nodeBugProductTeam"
+      },
+      "nodeBugProductTeam": {
+        "type": "input",
+        "text": "Product/Team",
+        "next": "nodeBugComponent"
+      },
+      "nodeBugComponent": {
+        "type": "input",
+        "text": "Component & Sub Component",
+        "next": "nodeBugSeverity"
+      },
+      "nodeBugSeverity": {
+        "type": "dropdown",
+        "text": "Severity",
+        "options": [
+          "Select",
+          "Trivial",
+          "Minor",
+          "Major",
+          "Critical"
+        ],
+        "next": {
+          "Trivial": "nodeBugPriority",
+          "Minor": "nodeBugPriority",
+          "Major": "nodeBugPriority",
+          "Critical": "nodeBugPriority"
+        }
+      },
+      "nodeBugPriority": {
+        "type": "dropdown",
+        "text": "Priority",
+        "options": [
+          "Select",
+          "Low",
+          "Medium",
+          "High",
+          "Urgent"
+        ],
+        "next": {
+          "Low": "nodeBugPhase",
+          "Medium": "nodeBugPhase",
+          "High": "nodeBugPhase",
+          "Urgent": "nodeBugPhase"
+        }
+      },
+      "nodeBugPhase": {
+        "type": "dropdown",
+        "text": "Phase",
+        "options": [
+          "Select",
+          "Production",
+          "System Testing",
+          "Unit Testing"
+        ],
+        "next": {
+          "Production": "nodeBugFoundIn",
+          "System Testing": "nodeBugFoundIn",
+          "Unit Testing": "nodeBugFoundIn"
+        }
+      },
+      "nodeBugFoundIn": {
+        "type": "dropdown",
+        "text": "Found in",
+        "options": [
+          "Select",
+          "Product",
+          "Code Review",
+          "Design",
+          "Requirement",
+          "Test Scenario",
+          "User Manual",
+          "Test Review"
+        ],
+        "next": {
+          "Product": "nodeBugIdentifiedBy",
+          "Code Review": "nodeBugIdentifiedBy",
+          "Design": "nodeBugIdentifiedBy",
+          "Requirement": "nodeBugIdentifiedBy",
+          "Test Scenario": "nodeBugIdentifiedBy",
+          "User Manual": "nodeBugIdentifiedBy",
+          "Test Review": "nodeBugIdentifiedBy"
+        }
+      },
+      "nodeBugIdentifiedBy": {
+        "type": "input",
+        "text": "Identified By appBots",
+        "next": "nodeBugTestEnvironment"
+      },
+      "nodeBugTestEnvironment": {
+        "type": "input",
+        "text": "Test Environment & Details",
+        "next": "nodeBugAssignedTo"
+      },
+      "nodeBugAssignedTo": {
+        "type": "input",
+        "text": "Assigned to",
+        "next": "nodeBugCreatedFor"
+      },
+      "nodeBugCreatedFor": {
+        "type": "input",
+        "text": "Created for Vulnerability",
+        "next": "nodeBugPlannedReleaseVersion"
+      },
+      "nodeBugPlannedReleaseVersion": {
+        "type": "input",
+        "text": "Planned Release Version",
+        "next": "nodeBugDetailedDescription"
+      },
+      "nodeBugDetailedDescription": {
+        "type": "input",
+        "text": "Detailed Description",
+        "next": "nodeBugStepsToReproduce"
+      },
+      "nodeBugStepsToReproduce": {
+        "type": "input",
+        "text": "Steps to Reproduce",
+        "next": "nodeBugExpectedResult"
+      },
+      "nodeBugExpectedResult": {
+        "type": "input",
+        "text": "Expected Result",
+        "next": "nodeBugActualResult"
+      },
+      "nodeBugActualResult": {
+        "type": "input",
+        "text": "Actual Result",
+        "next": "nodeBugConfirm"
+      },
+      "nodeBugConfirm": {
+        "type": "question",
+        "text": "Are you sure you want to submit the Bug report form?",
+        "answers": [
+          {
+            "text": "Submit",
+            "next": "node12"
+          },
+          {
+            "text": "Make changes",
+            "next": "nodeBug"
+          }
+        ]
+      },
+      "nodeChangeRequest": {
+        "type": "input",
+        "text": "Enter your employee ID",
+        "next": "nodeChangeRequestTitle"
+      },
+      "nodeChangeRequestTitle": {
+        "type": "input",
+        "text": "Title",
+        "next": "nodeChangeRequestClient"
+      },
+      "nodeChangeRequestClient": {
+        "type": "input",
+        "text": "Client",
+        "next": "nodeChangeRequestInstanceName"
+      },
+      "nodeChangeRequestInstanceName": {
+        "type": "input",
+        "text": "Instance Name",
+        "next": "nodeChangeRequestProductTeam"
+      },
+      "nodeChangeRequestProductTeam": {
+        "type": "input",
+        "text": "Product/Team",
+        "next": "nodeChangeRequestComponent"
+      },
+      "nodeChangeRequestComponent": {
+        "type": "input",
+        "text": "Component & Sub Component",
+        "next": "nodeChangeRequestSeverity"
+      },
+      "nodeChangeRequestSeverity": {
+        "type": "input",
+        "text": "Severity",
+        "next": "nodeChangeRequestPriority"
+      },
+      "nodeChangeRequestPriority": {
+        "type": "dropdown",
+        "text": "Priority",
+        "options": [
+          "Select",
+          "Low",
+          "Medium",
+          "High",
+          "Urgent"
+        ],
+        "next": {
+          "Low": "nodeChangeRequestIdentifiedBy",
+          "Medium": "nodeChangeRequestIdentifiedBy",
+          "High": "nodeChangeRequestIdentifiedBy",
+          "Urgent": "nodeChangeRequestIdentifiedBy"
+        }
+      },
+      "nodeChangeRequestIdentifiedBy": {
+        "type": "input",
+        "text": "Identified By appBots",
+        "next": "nodeChangeRequestTestEnvironment"
+      },
+      "nodeChangeRequestTestEnvironment": {
+        "type": "input",
+        "text": "Test Environment & Details",
+        "next": "nodeChangeRequestAssignedTo"
+      },
+      "nodeChangeRequestAssignedTo": {
+        "type": "input",
+        "text": "Assigned to",
+        "next": "nodeChangeRequestCreatedFor"
+      },
+      "nodeChangeRequestCreatedFor": {
+        "type": "input",
+        "text": "Created for Vulnerability",
+        "next": "nodeChangeRequestPlannedReleaseVersion"
+      },
+      "nodeChangeRequestPlannedReleaseVersion": {
+        "type": "input",
+        "text": "Planned Release Version",
+        "next": "nodeChangeRequestDetailedDescription"
+      },
+      "nodeChangeRequestDetailedDescription": {
+        "type": "input",
+        "text": "Detailed Description",
+        "next": "nodeChangeRequestConfirm"
+      },
+      "nodeChangeRequestConfirm": {
+        "type": "question",
+        "text": "Are you sure you want to submit the Change Request form?",
+        "answers": [
+          {
+            "text": "Submit",
+            "next": "node12"
+          },
+          {
+            "text": "Make changes",
+            "next": "nodeChangeRequest"
+          }
+        ]
+      },
+      "nodeServiceRequest": {
+        "type": "input",
+        "text": "Enter your employee ID",
+        "next": "nodeServiceRequestTitle"
+      },
+      "nodeServiceRequestTitle": {
+        "type": "input",
+        "text": "Title",
+        "next": "nodeServiceRequestClient"
+      },
+      "nodeServiceRequestClient": {
+        "type": "input",
+        "text": "Client",
+        "next": "nodeServiceRequestInstanceName"
+      },
+      "nodeServiceRequestInstanceName": {
+        "type": "input",
+        "text": "Instance Name",
+        "next": "nodeServiceRequestProductTeam"
+      },
+      "nodeServiceRequestProductTeam": {
+        "type": "input",
+        "text": "Product/Team",
+        "next": "nodeServiceRequestComponent"
+      },
+      "nodeServiceRequestComponent": {
+        "type": "input",
+        "text": "Component & Sub Component",
+        "next": "nodeServiceRequestPriority"
+      },
+      "nodeServiceRequestPriority": {
+        "type": "dropdown",
+        "text": "Priority",
+        "options": [
+          "Select",
+          "Low",
+          "Medium",
+          "High",
+          "Urgent"
+        ],
+        "next": {
+          "Low": "nodeServiceRequestAssignedTo",
+          "Medium": "nodeServiceRequestAssignedTo",
+          "High": "nodeServiceRequestAssignedTo",
+          "Urgent": "nodeServiceRequestAssignedTo"
+        }
+      },
+      "nodeServiceRequestAssignedTo": {
+        "type": "input",
+        "text": "Assigned to",
+        "next": "nodeServiceRequestDetailedDescription"
+      },
+      "nodeServiceRequestDetailedDescription": {
+        "type": "input",
+        "text": "Detailed Description",
+        "next": "nodeServiceRequestConfirm"
+      },
+      "nodeServiceRequestConfirm": {
+        "type": "question",
+        "text": "Are you sure you want to submit the Service Request form?",
+        "answers": [
+          {
+            "text": "Submit",
+            "next": "node12"
+          },
+          {
+            "text": "Make changes",
+            "next": "nodeServiceRequest"
+          }
+        ]
+      }
+    }
+  }
+}

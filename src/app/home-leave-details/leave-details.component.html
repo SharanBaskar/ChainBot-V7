@@ -1,0 +1,71 @@
+<div class="home-container">
+    <div class="sidebar">
+      <div class="logo">
+        <img src="https://trial.chainsys.com/appplatform/images/chainsys-platform-logo.png" alt="ChainSys Logo">
+      </div>
+      <div class="menu">
+        <h2></h2>
+
+<button (click)="home()">
+  <i class="fas fa-home"></i> Home
+</button>
+
+<button (click)="showMyDetails()">
+  <i class="fas fa-user"></i> My Details
+</button>
+
+<button class="active" (click)="toggleLeaveMenu()">
+  <i class="fas fa-clipboard-list"></i> Leave
+  <i [class]="isLeaveMenuOpen ? 'fas fa-chevron-up' : 'fas fa-chevron-down'"></i>
+</button>
+
+<div  class="submenu">
+  <button class="active" (click)="showLeaveDetails()">
+    <i class="fas fa-info-circle"></i> Leave Details
+  </button>
+  <button  (click)="showLeaveSummary()">
+    <i class="fas fa-chart-bar"></i> Leave Report
+  </button>
+</div>
+
+<button (click)="showServiceRequests()">
+  <i class="fas fa-tools"></i> Service Requests
+</button>
+
+<button (click)="showDekstopSupport()">
+  <i class="fas fa-desktop"></i> Desktop Support
+</button>
+
+
+<button (click)="logout()">
+  <i class="fas fa-sign-out-alt"></i> Logout
+</button>
+
+      </div>
+    </div>
+    <div class="main-content">
+      <div class="header">
+        <h2>Welcome! {{ employee?.employeename }}</h2>
+      </div>
+      <div *ngIf="leaveDetails">
+        <h2>Leave Details</h2>
+        <table class="leave-details">
+          <tbody>
+            <tr>
+              <td><strong>Casual Leave Taken:</strong></td>
+              <td>{{ leaveDetails.casualLeaveBalance }}</td>
+            </tr>
+            <tr>
+              <td><strong>Medical Leave Taken:</strong></td>
+              <td>{{ leaveDetails.medicalLeaveBalance }}</td>
+            </tr>
+            <tr>
+              <td><strong>Total Leave Taken:</strong></td>
+              <td>{{ leaveDetails.leaveBalance }}</td>
+            </tr>
+          </tbody>
+        </table>
+        <app-chatbot></app-chatbot>
+
+  </div>
+  

@@ -1,0 +1,99 @@
+<div class="leave-summary-page">
+      <!-- Sidebar Menu -->
+      <div class="sidebar">
+        <div class="logo">
+          <img src="https://trial.chainsys.com/appplatform/images/chainsys-platform-logo.png" alt="ChainSys Logo">
+        </div>
+        <div class="menu">
+          <h2></h2>
+          <button (click)="home()">
+            <i class="fas fa-home"></i> Home
+          </button>
+    
+          <button class="active" (click)="showLeaveSummary()">
+            <i class="fas fa-chart-pie"></i> Leave Summary
+          </button>
+    
+          <button (click)="showEmployeeSummary()">
+            <i class="fas fa-users"></i> Leave Summary of all Employees
+          </button>
+    
+          <button (click)="showEmployeeLeaveDetails()">
+            <i class="fas fa-user-tag"></i> Summary of a particular Employee
+          </button>
+    
+          <button (click)="logout()">
+            <i class="fas fa-sign-out-alt"></i> Logout
+          </button>
+          
+        </div>
+      </div>
+    
+      <!-- Main Content Area -->
+      <div class="main-content">
+        <div class="header">
+        </div>
+    <div  class="section-box"> 
+      <h2>Leave Summary</h2>
+
+    <div class="summary-cards">
+      <div class="card" (click)="navigateTo('date-wise')">
+        <h4>No. of Employees took Leave Today</h4>
+        <p>{{ getUniqueEmployeeCount(leaveRecordsToday) }}</p>
+        <button (click)="navigateTo('date-wise')">Click the card to view Date Wise Summary</button>
+      </div>
+      <div class="card" (click)="navigateTo('week-wise')">
+        <h4>No. of Employees took Leave This Week</h4>
+        <p>{{ leaveCounts.thisWeek }}</p>
+        <button (click)="navigateTo('week-wise')">Click the card to view Week Wise Summary</button>
+      </div>
+      <div class="card" (click)="navigateTo('month-wise')">
+        <h4>No. of Employees took Leave This Month</h4>
+        <p>{{ leaveCounts.thisMonth }}</p>
+        <button (click)="navigateTo('date-wise')">Click the card to view Month Wise Summary</button>
+      </div>
+      <div class="card">
+        <h4>No. of Employees took Leave This Year</h4>
+        <p>{{ leaveCounts.thisYear }}</p>
+      </div>
+    </div>
+  </div>
+       <!-- Leave Records for Today Section -->
+   <div class="section-box" *ngIf="leaveRecordsToday.length">
+    <h2>Today Leave Summary</h2>
+    <h3>No. of employees took leave today: {{ getUniqueEmployeeCount(leaveRecordsToday) }}</h3>
+    <table class="leave-records">
+      <thead>
+        <tr>
+          <th>Employee Id</th>
+          <th>Employee Name</th>
+          <th>Start Date</th>
+          <th>End Date</th>
+          <th>Leave Type</th>
+          <th>Reason</th>
+          <th>Leave Days</th>
+          <th>Loss of Pay</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let leave of leaveRecordsToday">
+          <td>{{ leave.employeeId }}</td>
+          <td>{{ leave.employeename }}</td>
+          <td>{{ leave.startDate | date }}</td>
+          <td>{{ leave.endDate | date }}</td>
+          <td>{{ leave.leaveType }}</td>
+          <td>{{ leave.leaveReason }}</td>
+          <td>{{ leave.leaveDays }}</td>
+          <td>{{ leave.lossOfPay }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div *ngIf="leaveRecordsToday.length === 0 && groupedLeaveRecords.length">
+    <div class="section-box">
+      <h2>No employee took leave today.</h2>
+    </div>
+  </div>
+    
+  </div>
+  

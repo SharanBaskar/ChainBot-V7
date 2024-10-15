@@ -1,0 +1,86 @@
+<div class="home-container">
+  <div class="sidebar">
+    <div class="logo">
+      <img src="https://trial.chainsys.com/appplatform/images/chainsys-platform-logo.png" alt="ChainSys Logo">
+    </div>
+    <div class="menu">
+      <h2></h2>
+
+      <button class="active" (click)="home()">
+        <i class="fas fa-home"></i> Home
+      </button>
+      
+      <button (click)="showMyDetails()">
+        <i class="fas fa-user"></i> My Details
+      </button>
+      
+      <!-- Button for Leave Menu -->
+      <button (click)="toggleLeaveMenu()">
+        <i class="fas fa-clipboard-list"></i> Leave
+        <i [class]="isLeaveMenuOpen ? 'fas fa-chevron-up' : 'fas fa-chevron-down'"></i>
+      </button>
+      
+      <!-- Submenu for Leave Details and Leave Report -->
+      <div *ngIf="isLeaveMenuOpen" class="submenu">
+        <button (click)="showLeaveDetails()">
+          <i class="fas fa-info-circle"></i> Leave Details
+        </button>
+        <button (click)="showLeaveSummary()">
+          <i class="fas fa-chart-bar"></i> Leave Report
+        </button>
+      </div>
+      <button (click)="showServiceRequests()">
+        <i class="fas fa-tools"></i> Service Requests
+      </button>
+      
+      <button (click)="showDesktopSupport()">
+        <i class="fas fa-desktop"></i> Desktop Support
+      </button>
+      
+      <button (click)="logout()">
+        <i class="fas fa-sign-out-alt"></i> Logout
+      </button>
+      
+      
+    </div>
+  </div>
+  <div class="main-content">
+    <div class="header">
+      <h2>Welcome! {{ employee?.employeename }}</h2>
+    </div>
+    
+    <div class="home-description section-box">
+      <h2>About this Dashboard</h2>
+      <p>This dashboard is designed to provide employees with quick access to important information and tools for managing their work-related activities.</p>
+      
+      <h3>Key Features:</h3>
+      <ul>
+        <li><i class="fas fa-user"></i><strong> My Details:</strong> View personal information and details specific to your employee profile.</li>
+        <li><i class="fas fa-clipboard-list"></i><strong> Leave:</strong></li>
+           <li><strong>Leave Details:</strong> Track your leave balance, including Casual Leave and Medical Leave.</li>
+           <li><strong>Leave Report:</strong> Review detailed leave records by month, with information about leave type, duration, and reasons.</li>
+        <li><i class="fas fa-tools"></i><strong> Service Request:</strong> You can view the ticket id.</li>
+        <li><i class="fas fa-desktop"></i><strong> Desktop Support:</strong> You can view the ticket id.</li>
+      </ul>
+      
+      <p>Navigate through the menu on the left to access these features and manage your details effectively.</p>
+    <h3>ChainBot Features</h3>
+    <p>ChainBot is designed to assist employees with various services efficiently. Below are the key features available:</p>
+    
+    <ul>
+      <li>
+        <strong>Leave Application:</strong> 
+        Submit your leave requests directly through ChainBot. You can specify the type of leave, dates, reasons, and get real-time updates on your application status.
+      <li>
+        <strong>Service Request:</strong> 
+        Use ChainBot to submit a request for any internal services, such as report Bug, Change Request, Support Request..
+      <li>
+        <strong>Desktop Support:</strong> 
+        Raise a desktop support request for IT assistance through ChainBot.
+      </li>
+    </ul>
+    
+    
+    <app-chatbot></app-chatbot>
+  </div>
+</div>

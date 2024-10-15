@@ -1,0 +1,75 @@
+/* Ensure the body takes up the full viewport height */
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+  margin: 0;
+}
+
+.login-container {
+  width: 400px;
+  padding: 20px;
+  text-align: center;
+}
+
+.logo img {
+  width: 200px;
+  margin-bottom: 20px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+input {
+  width: 77%;
+  padding: 8px;
+  border: 1px solid #ddd; /* Slightly lighter border */
+  border-radius: 100px;
+  box-sizing: border-box;
+  background-color: #f0f0f0; /* Light gray background */
+  color: #333; /* Dark gray text color */
+  transition: border-color 0.3s ease; /* Smooth transition for border color */
+}
+
+input::placeholder {
+  color: #aaa; /* Lighter gray for placeholders */
+}
+
+input:focus {
+  border-color: #007bff; /* Highlight border color on focus */
+  outline: none; /* Remove default outline */
+}
+button {
+  width: 50px;
+  height: 50px;
+  border: none;
+  border-radius:  90%;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth transition for button effects */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px auto 0; /* Center the button */
+}
+
+button img {
+  width: 60px;
+  height: 60px;
+}
+
+button:hover {
+  background-color: #e0e0e0; /* Slightly darker color on hover */
+  transform: scale(1.05); /* Slightly enlarge button on hover */
+}
+
+button:active {
+  background-color: #d0d0d0; /* Even darker color when button is pressed */
+}
+
+.error-message {
+  color: red;
+  margin-top: 10px;
+  font-size: 14px; /* Adjust font size for better visibility */
+}

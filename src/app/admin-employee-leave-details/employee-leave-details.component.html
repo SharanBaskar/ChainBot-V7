@@ -1,0 +1,113 @@
+<div class="home-container">
+  <!-- Sidebar Menu -->
+  <div class="sidebar">
+    <div class="logo">
+      <img src="https://trial.chainsys.com/appplatform/images/chainsys-platform-logo.png" alt="ChainSys Logo">
+    </div>
+    <div class="menu">
+      <h2></h2>
+      <button (click)="home()">
+        <i class="fas fa-home"></i> Home
+      </button>
+
+      <button (click)="showLeaveSummary()">
+        <i class="fas fa-chart-pie"></i> Leave Summary
+      </button>
+
+      <button (click)="showEmployeeSummary()">
+        <i class="fas fa-users"></i> Leave Summary of all Employees
+      </button>
+
+      <button class="active" (click)="showEmployeeLeaveDetails()">
+        <i class="fas fa-user-tag"></i> Summary of a particular Employee
+      </button>
+
+      <button (click)="logout()">
+        <i class="fas fa-sign-out-alt"></i> Logout
+      </button>
+      
+    </div>
+  </div>
+
+  <!-- Main Content Area -->
+  <div class="main-content">
+    <div class="header">
+      <h2>Welcome! Admin</h2>
+    </div>
+  
+    <h2>Employee Leave Details</h2>
+  
+    <!-- Search Box -->
+    <div class="search-container">
+      <input [(ngModel)]="employeeId" placeholder="Enter Employee ID" (keyup.enter)="onSearch()"/>
+      <button (click)="onSearch()">Search</button>
+    </div>
+    <!-- Error Message Display -->
+  <div *ngIf="errorMessage" class="error-message">
+    <p>{{ errorMessage }}</p>
+  </div>
+  
+    <div *ngIf="employee">
+      <h2>Employee Details</h2>
+      <table class="employee-details">
+        <tbody>
+          <tr>
+            <td><strong>Employee ID:</strong></td>
+            <td>{{ employee.employeeId }}</td>
+          </tr>
+          <tr>
+            <td><strong>Name:</strong></td>
+            <td>{{ employee.employeename }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  
+    <div *ngIf="leaveDetails">
+      <h2>Leave Details</h2>
+      <table class="leave-details">
+        <tbody>
+          <tr>
+            <td><strong>Casual Leave:</strong></td>
+            <td>{{ leaveDetails.casualLeaveBalance }}</td>
+          </tr>
+          <tr>
+            <td><strong>Medical Leave:</strong></td>
+            <td>{{ leaveDetails.medicalLeaveBalance }}</td>
+          </tr>
+          <tr>
+            <td><strong>Total Leave Taken:</strong></td>
+            <td>{{ leaveDetails.leaveBalance }}</td>
+          </tr>
+        </tbody>
+      </table>
+      <h2>Leave Records</h2>
+    <div *ngFor="let yearGroup of groupLeaveRecordsByYear()">
+      <h3>{{ yearGroup.year }}</h3>
+      <table class="leave-records">
+        <thead>
+          <tr>
+            <th>Start Date</th>
+            <th>End Date</th>
+            <th>Leave Type</th>
+            <th>Reason</th>
+            <th>Leave Days</th>
+            <th>Loss of Pay</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let leave of yearGroup.leaves">
+            <td>{{ leave.startDate | date }}</td>
+            <td>{{ leave.endDate | date }}</td>
+            <td>{{ leave.leaveType }}</td>
+            <td>{{ leave.leaveReason }}</td>
+            <td>{{ leave.leaveDays }}</td>
+            <td>{{ leave.lossOfPay }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    </div>
+    <div *ngIf="!employee && !leaveDetails">Please Enter the employee Id to display the details...</div>
+  </div>
+</div>

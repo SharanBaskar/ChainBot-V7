@@ -1,0 +1,82 @@
+<div class="service-requests">
+    <div class="sidebar">
+        <div class="logo">
+          <img src="https://trial.chainsys.com/appplatform/images/chainsys-platform-logo.png" alt="ChainSys Logo">
+        </div>
+        <div class="menu">
+            <h2></h2>
+
+          <button (click)="home()">
+            <i class="fas fa-home"></i> Home
+          </button>
+          
+          <button (click)="showMyDetails()">
+            <i class="fas fa-user"></i> My Details
+          </button>
+          
+      <!-- Button for Leave Menu -->
+      <button (click)="toggleLeaveMenu()">
+        <i class="fas fa-clipboard-list"></i> Leave
+        <i [class]="isLeaveMenuOpen ? 'fas fa-chevron-up' : 'fas fa-chevron-down'"></i>
+      </button>
+      
+      <!-- Submenu for Leave Details and Leave Report -->
+      <div *ngIf="isLeaveMenuOpen" class="submenu">
+        <button (click)="showLeaveDetails()">
+          <i class="fas fa-info-circle"></i> Leave Details
+        </button>
+        <button (click)="showLeaveSummary()">
+          <i class="fas fa-chart-bar"></i> Leave Report
+        </button>
+      </div>
+          <button (click)="showServiceRequests()">
+            <i class="fas fa-tools"></i> Service Requests
+          </button>
+
+          <button class="active" (click)="showDekstopSupport()">
+            <i class="fas fa-desktop"></i> Desktop Support
+          </button>
+          
+          <button (click)="logout()">
+            <i class="fas fa-sign-out-alt"></i> Logout
+          </button>
+              
+        </div>
+      </div>
+      <div class="main-content">
+        <div class="header">
+          <h2>Welcome! {{ employee?.employeename }}</h2>
+        </div>
+      
+        <h2>Desktop Support Requests</h2>
+        <ul>
+          <li *ngFor="let document of desktopSupportDocuments">
+            <!-- Display the title and a clickable element for expanding details -->
+            <span (click)="toggleDesktopSupportDetails(document._id)" style="cursor: pointer;">
+             Desktop Support ID: {{ document._id }}
+              <i [class]="expandedDesktopDocumentId === document._id ? 'fas fa-chevron-up' : 'fas fa-chevron-down'"></i>
+            </span>
+      
+            <p>
+              <strong>Date:</strong> {{getFormattedDate(document.date)}}
+            </p>
+
+            <!-- Conditionally display the details if the document is clicked -->
+            <div *ngIf="expandedDesktopDocumentId === document._id">
+              <p><strong>Contact Number:</strong> {{ document.contactNumber }}</p>
+              <p><strong>Location:</strong> {{ document.location }}</p>
+              <p><strong>Expected Date:</strong> {{ document.expectedDate }}</p>
+              <p><strong>Problem Description:</strong> {{ document.problemDescription }}</p>
+              <p><strong>Date:</strong> {{ document.date }}</p>
+      
+              <!-- Add any other specific fields you want to display here -->
+            </div>
+          </li>
+        </ul>
+      </div>
+      
+      
+    <app-chatbot></app-chatbot>
+
+  </div>
+  
